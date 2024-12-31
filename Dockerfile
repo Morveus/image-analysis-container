@@ -23,4 +23,4 @@ COPY water-heater.py .
 EXPOSE 5000
 
 # Command to run the application
-CMD ["python", "water-heater.py"] 
+CMD ["python", "ollama-image-analysis.py"] 

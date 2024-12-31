@@ -1,6 +1,15 @@
 # Image analysis using ollama-vision3.2
+## Context
+This is a simple Flask application that uses ollama-vision3.2 to analyze images.
+
+It is meant to run on my cluster, and be called periodically to check on various equipment in my home.
+
+My motivation to build this was that I often have issues with the grid, and my water heater goes into safe mode. 
+Which we don't realize until we have to shower, the water is cold, and we're late for work. Fixing it is as simple as cutting power to the device, waiting a bit and powering it back on. Now thanks to AI, I can get a notification when it happens.
 
 ## Deployment
+An image is available on my docker hub repository: `https://hub.docker.com/r/morveus/ollama-image-analysis`
+
 You need to provide the following environment variable:
 - OLLAMA_HOST: The host and port of the Ollama server (default: http://localhost:11434)
 
