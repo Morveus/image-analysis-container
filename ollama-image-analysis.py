@@ -5,6 +5,7 @@ from typing import Literal
 import cv2
 from ollama import Client
 import os
+import uuid
 
 app = Flask(__name__)
 
@@ -34,8 +35,8 @@ def analyze_image():
         if not ret:
             return jsonify({"error": "Unable to capture a frame from the camera feed"}), 500
 
-        # Save the frame as an image
-        snapshot_filename = "snapshot.jpg"
+        # Generate a random filename for the temporary image
+        snapshot_filename = f"temp_{uuid.uuid4()}.jpg"
         cv2.imwrite(snapshot_filename, frame)
 
         # Dynamically create the schema using Pydantic
@@ -63,11 +64,15 @@ def analyze_image():
             options={'temperature': 0},
         )
 
-        # Parse the response into the dynamically created schema
-        image_analysis = DynamicImageDescription.model_validate_json(response.message.content)
-
-        # Return the analysis as JSON
-        return jsonify(image_analysis.dict()), 200
+        try:
+            # Parse the response into the dynamically created schema
+            image_analysis = DynamicImageDescription.model_validate_json(response.message.content)
+            
+            return jsonify(image_analysis.dict()), 200
+        finally:
+            # Clean up the temporary file
+            if os.path.exists(snapshot_filename):
+                os.remove(snapshot_filename)
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500

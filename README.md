@@ -29,6 +29,12 @@ curl -X POST http://host:5000/analyze \
 }'
 ```
 
+## Details
+- prompt: The prompt to send to the Ollama server. 
+- camera_feed: The RTSP stream of the camera (it will take a snapshot to analyse)
+- model: The model to use for the analysis (default: llama3.2-vision)
+- schema: The schema to use for the analysis. It is a JSON object that defines the structure of the data that will be returned by the analysis.
+
 Returns:
 ```
 {
