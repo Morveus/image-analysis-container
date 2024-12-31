@@ -1,4 +1,9 @@
 # Image analysis using ollama-vision3.2
+![image](https://github.com/user-attachments/assets/90fa878f-be97-4e3b-a8c9-82c272963541)
+
+The water heater is working, no need to worry about cold showers today.
+
+
 ## Context
 This is a simple Flask application that uses ollama-vision3.2 to analyze images.
 
@@ -42,3 +47,5 @@ Returns:
 }
 ```
 when the water heater has a problem, for instance.
+
+Parsing the results then feeding a home automation / notification platform is out of the scope of this short script.
