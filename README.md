@@ -1,6 +1,8 @@
 # Image analysis using ollama-vision3.2
 ![image](https://github.com/user-attachments/assets/90fa878f-be97-4e3b-a8c9-82c272963541)
 
+<img width="676" alt="image" src="https://github.com/user-attachments/assets/0d95b213-025d-46db-a191-b6d81eb8b0f5" />
+
 The water heater is working, no need to worry about cold showers today.
 
 
